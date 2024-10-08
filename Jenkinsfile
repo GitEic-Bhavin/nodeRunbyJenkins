@@ -45,7 +45,8 @@ pipeline {
         stage('Host Nodejs Web') {
             steps {
                 script {
-                    sh 'npm start'
+                    // sh 'npm start'
+                    sh 'timeout 5 npm start'
                 }
             }
         }
