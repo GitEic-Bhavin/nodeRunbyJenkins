@@ -70,7 +70,8 @@ pipeline {
         stage('DeployContainer') {
             steps {
                 script {
-                    sh 'docker run -d -p 5000:5000 bhavin1099/npm-jenkins'
+                    sh 'docker run -d -p 5001:5000 bhavin1099/npm-jenkins'
+                    echo "Nodejs Running on loaclhost:5001"
                 }
             }
         }
