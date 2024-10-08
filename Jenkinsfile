@@ -53,7 +53,7 @@ pipeline {
         stage('DockerBuild') {
             steps {
                 script {
-                    sh 'docker build . -t "bhavin1099/npmJenkins"'
+                    sh 'docker build . -t "bhavin1099/npm-jenkins"'
                 }
             }
         }
