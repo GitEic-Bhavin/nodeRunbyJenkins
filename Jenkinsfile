@@ -43,6 +43,7 @@ pipeline {
                     sh 'exit 1'
                 }
             }
+        }
         // stage('Host Nodejs Web') {
         //     steps {
         //         script {
