@@ -29,12 +29,14 @@ pipeline {
         }
         stage('Test Npm Code') {
             steps {
-                sh 'timeout 5 npm start'
+                script {
+                    sh 'timeout 5 npm start'
+                }
             }
-        }
-        stage('Host Nodejs Web') {
-            steps {
-                sh 'npm start'
+            stage('Host Nodejs Web') {
+                steps {
+                    sh 'npm start'
+                }
             }
         }
     }
