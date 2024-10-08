@@ -27,6 +27,13 @@ pipeline {
                 sh 'npm -v'
             }
         }
+        stage('Build Npm') {
+            steps{
+                script {
+                    sh 'npm run build'
+                }
+            }
+        }
         stage('Test Npm Code') {
             steps {
                 script {
