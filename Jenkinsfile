@@ -39,7 +39,7 @@ pipeline {
         stage('Test Npm Code') {
             steps {
                 script {
-                    sh 'nodejs.sh'
+                    sh './nodejs.sh'
                 }
             }
         }
