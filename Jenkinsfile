@@ -36,12 +36,13 @@ pipeline {
                 }
             }
         }
-        // stage('Test Npm Code') {
-        //     steps {
-        //         script {
-        //             sh 'timeout 5 npm start'
-        //         }
-        //     }
+        stage('Test Npm Code') {
+            steps {
+                script {
+                    sh 'timeout 5 npm start'
+                    sh 'exit 1'
+                }
+            }
         // stage('Host Nodejs Web') {
         //     steps {
         //         script {
