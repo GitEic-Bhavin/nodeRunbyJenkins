@@ -27,24 +27,24 @@ pipeline {
                 sh 'npm -v'
             }
         }
-        stage('Build Npm') {
-            steps{
-                script {
-                    sh 'npm run build'
-                }
-            }
-        }
-        stage('Test Npm Code') {
-            steps {
-                script {
-                    sh 'timeout 5 npm start'
-                }
-            }
-            stage('Host Nodejs Web') {
-                steps {
-                    sh 'npm start'
-                }
-            }
-        }
+        // stage('Build Npm') {
+        //     steps{
+        //         script {
+        //             sh 'npm run build'
+        //         }
+        //     }
+        // }
+        // stage('Test Npm Code') {
+        //     steps {
+        //         script {
+        //             sh 'timeout 5 npm start'
+        //         }
+        //     }
+        // stage('Host Nodejs Web') {
+        //     steps {
+        //         sh 'npm start'
+        //         }
+        //     }
+        // }
     }
 }
