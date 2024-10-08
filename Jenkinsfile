@@ -5,15 +5,15 @@ pipeline {
         nodejs 'node-10.8.0'
     }
 
-    // parameters {
-    //     choices(choice: ["master", "main"], description: "choose branch", name: "CheckoutBranch")
-    // }
+    parameters {
+        choice(choices: ["master", "main"], description: "choose branch", name: "CheckoutBranch")
+    }
 
     stages {
         stage('Checkout') {
             steps {
-                // git branch: "${params.CheckoutBranch}", url: 'https://github.com/GitEic-Bhavin/nodeRunbyJenkins.git'
-                git branch: "master", url: 'https://github.com/GitEic-Bhavin/nodeRunbyJenkins.git'
+                 git branch: "${params.CheckoutBranch}", url: 'https://github.com/GitEic-Bhavin/nodeRunbyJenkins.git'
+                //git branch: "master", url: 'https://github.com/GitEic-Bhavin/nodeRunbyJenkins.git'
 
             }
         }
@@ -54,6 +54,22 @@ pipeline {
             steps {
                 script {
                     sh 'docker build . -t "bhavin1099/npm-jenkins"'
+                }
+            }
+        }
+        stage('DockerPush') {
+            steps {
+                script {
+                    withDockerRegistry(credentialsId: 'docker-cred') {
+                        sh 'docker push "bhavin1099/npm-jenkins"'
+                    }
+                }
+            }
+        }
+        stage('DeployContainer') {
+            steps {
+                script {
+                    sh 'docker run -d -v 5000:5000 bhavin1099/npm-jenkins'
                 }
             }
         }
