@@ -42,11 +42,18 @@ pipeline {
         //             sh 'timeout 5 npm start'
         //         }
         //     }
-        stage('Host Nodejs Web') {
+        // stage('Host Nodejs Web') {
+        //     steps {
+        //         script {
+        //             // sh 'npm start'
+        //             sh 'timeout 5 npm start'
+        //         }
+        //     }
+        // }
+        stage('DockerBuild') {
             steps {
                 script {
-                    // sh 'npm start'
-                    sh 'timeout 5 npm start'
+                    sh 'docker build . -t "bhavin1099/npmJenkins'
                 }
             }
         }
