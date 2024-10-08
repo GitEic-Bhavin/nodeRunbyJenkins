@@ -69,7 +69,7 @@ pipeline {
         stage('DeployContainer') {
             steps {
                 script {
-                    sh 'docker run -d -v 5000:5000 bhavin1099/npm-jenkins'
+                    sh 'docker run -d -p 5000:5000 bhavin1099/npm-jenkins'
                 }
             }
         }
